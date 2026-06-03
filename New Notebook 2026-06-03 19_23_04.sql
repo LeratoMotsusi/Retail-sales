@@ -1,6 +1,11 @@
 -- Databricks notebook source
-SELECT *
-FROM retail.sales.dataset;
+USE brightlearn.data;
+
+-- COMMAND ----------
+
+select * 
+from retail_sales;
+
 
 -- COMMAND ----------
 
@@ -8,3 +13,4 @@ FROM retail.sales.dataset;
 SELECT `Customer ID`,
        `Product Category`
 FROM retail_sales;
+
