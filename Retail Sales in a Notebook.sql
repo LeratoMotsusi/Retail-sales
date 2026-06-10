@@ -10,6 +10,9 @@ SELECT `Customer ID`,
        `Product Category`
 FROM retail_sales;
 
+
+
+
 -----------------------------------------------------------------------------------------------------------------------------
 --Display all records in the retail sales table. 
 SELECT * FROM retail_sales; 
@@ -18,13 +21,13 @@ SELECT * FROM retail_sales;
 SELECT `Customer ID`, `Product Category`
 FROM retail_sales; 
 
---Comment: Display all Electronics sales transactions. 
+--Display all Electronics sales transactions. 
 SELECT * FROM retail_sales WHERE `Product Category`= 'Electronics'; 
 
---Comment: Display customers who are older than 40 years. 
+--Display customers who are older than 40 years. 
 SELECT * FROM retail_sales WHERE Age > 40; 
 
---Comment: Display transactions where the quantity purchased is 3 or more. 
+--Display transactions where the quantity purchased is 3 or more. 
 SELECT * FROM retail_sales WHERE Quantity >= 3; 
 
 --Display Beauty product sales where the total amount is greater than 100. 
@@ -71,3 +74,30 @@ SELECT `Product Category`, SUM(`Total Amount`) AS Total_Sales FROM retail_sales 
  
  --Display the top 3 product categories by total sales where sales exceed 10,000. 
  SELECT `Product Category`, SUM(`Total Amount`) AS Total_Sales FROM retail_sales GROUP BY `Product Category` HAVING SUM(`Total Amount`) > 10000 ORDER BY Total_Sales DESC LIMIT 3;
+
+
+-------------------------------------------------------------------------
+
+SELECT COUNT(DISTINCT `Customer ID`) AS unique_customers,
+
+       Date,
+
+       YEAR(Date) AS trans_month,
+       
+       MONTH(Date) AS trans_month,
+       
+       MONTHNAME(Date) AS trans_month_name,
+       
+       DAY(Date) AS trans_day,
+       
+       DAYNAME(Date) AS trans_day_name,
+       
+       SUM(`Total Amount`) AS Revenue,
+       
+       `Product Category`
+FROM brightlearn.data.retail_sales
+
+GROUP BY ALL;
+
+
+
